@@ -1,0 +1,63 @@
+THUẬT NGỮ:
+- IoC ( Inversion of Control): Một design pattern cho phép khởi tạo và quản lý các đối tượng thông qua một framework/container. Trong Spring là Ioc Container.
+
+- Bean: Các object cho Spring tự tạo vào quản lý. Nói đơn giản là Dev không phải tự tạo đối tượng mà chỉ cần khai báo tên biến.
+
+- DTO (Data Transfer Object) : Object chỉ dùng để vận chuyển dữ liệu giữa các tầng không liên quan đến Database. Tư tưởng giống như Destructuring trong JS, nghĩa là lấy ra một phần của Entity để phục vụ cho request, response (Dự án lớn sử dụng thư viện MapStruct để tự động convert từ Java Bean sang DTO
+
+- DAO (Data Access Object): Object chuyên thực hiện thao tác với Database (CRUD). Trong Spring Boot, Repository chính là DAO
+
+- Jackson: Thư viện trong Java để chuyển qua lại giữa Java Object và JSON
+
+- Hibernate: Thư viện giúp làm việc với Database bằng Java Object thay vì viết SQL thủ công
+
+
+==========================================|| ANNOTATION QUAN TRỌNG TRONG SPRING BOOT ||==========================================
+
+==========================================|| NHÓM 1: Đánh dấu Bean (Cho Ioc Container) ||==========================================
+
+@Component          // Bean thông thường — dùng khi không thuộc nhóm nào dưới
+@Service            // Bean tầng business logic
+@Repository         // Bean tầng database — có thêm tính năng bắt lỗi DB
+@RestController     // Bean xử lý HTTP — kết hợp @Controller + @ResponseBody
+@Configuration      // Bean chứa cấu hình
+
+==========================================|| NHÓM 2: Inject Dependency ||==========================================
+@Autowired          // yêu cầu Spring inject Bean vào
+@Qualifier("tên")   // khi có nhiều Bean cùng type, chỉ định cái nào
+@Value("${key}")    // đọc giá trị từ application.properties
+
+==========================================|| NHÓM 3: REST Controller (xử lý HTTP) ||==========================================
+@RestController             // đánh dấu class xử lý HTTP
+@RequestMapping("/users")   // prefix URL cho cả class
+
+@GetMapping("/")            // HTTP GET
+@PostMapping("/")           // HTTP POST
+@PutMapping("/{id}")        // HTTP PUT — cập nhật toàn bộ
+@PatchMapping("/{id}")      // HTTP PATCH — cập nhật một phần
+@DeleteMapping("/{id}")     // HTTP DELETE
+
+==========================================|| Nhóm 4 — Xử lý tham số trong Controller ||==========================================
+@PathVariable       // lấy giá trị từ URL
+@RequestParam       // lấy query string
+@RequestBody        // lấy data từ body (JSON)
+@RequestHeader      // lấy giá trị từ header
+
+==========================================|| Nhóm 5 — Validation (kiểm tra dữ liệu đầu vào) ||==========================================
+@Valid              // kích hoạt validation cho object
+@NotBlank          // không được null và không được rỗng
+@NotNull           // không được null (nhưng có thể rỗng)
+@Email             // phải đúng định dạng email
+@Size(min, max)    // giới hạn độ dài
+@Min / @Max        // giới hạn số
+@Pattern           // phải khớp regex
+
+==========================================|| Nhóm 6 — JPA / Database ||==========================================
+@Entity             // đánh dấu class này là bảng trong database
+@Table(name="")     // chỉ định tên bảng (nếu khác tên class)
+@Id                 // đánh dấu primary key
+@GeneratedValue     // tự động tăng id
+@Column(name="")    // chỉ định tên cột (nếu khác tên field)
+@OneToMany          // quan hệ 1 - nhiều
+@ManyToOne          // quan hệ nhiều - 1
+@ManyToMany         // quan hệ nhiều - nhiều

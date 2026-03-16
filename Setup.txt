@@ -1,0 +1,19 @@
+I. CHUẨN BỊ PHẦN MỀM:
+
+	Trước tiên — Setup môi trường (5 phút)
+	Bạn cần cài:
+
+	1. JDK 17+ — https://adoptium.net
+	2. IntelliJ IDEA Community (miễn phí) — https://jetbrains.com/idea
+		Maven (đi kèm IntelliJ rồi, không cần cài thêm)
+	1. MySQL Server — database engine thật sự chạy ngầm trên máy, nơi lưu trữ data.
+		Download tại: https://dev.mysql.com/downloads/installer/ (chọn bản Windows Installer 500MB)
+	2. DBeaver — phần mềm giao diện để quản lý database trực quan, thay vì gõ lệnh.
+		Download tại: https://dbeaver.io/download/
+
+II. TẠO PROJECT ĐẦU TIÊN tại https://start.spring.io với config:
+
+	Project: Maven
+	Language: Java
+	Spring Boot: 3.x
+	Dependencies: Spring Web
