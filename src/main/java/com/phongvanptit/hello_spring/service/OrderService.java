@@ -1,4 +1,4 @@
-package com.phongvanptit.hello_spring.service.impl;
+package com.phongvanptit.hello_spring.service;
 
 import org.springframework.stereotype.Service;
 

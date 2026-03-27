@@ -1,6 +1,6 @@
 package com.phongvanptit.hello_spring;
 
-import com.phongvanptit.hello_spring.service.impl.OrderService;
+import com.phongvanptit.hello_spring.service.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
